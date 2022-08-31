@@ -6,16 +6,6 @@ import { useState } from 'react'
 
 const Form = (props) => {
 
-  const teams = [
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão'
-  ]
-
   const saving = (event) => {
     event.preventDefault()
     props.handleSubmit({
@@ -58,7 +48,7 @@ const Form = (props) => {
         <DropDownList 
         mandatory={true} 
         label="Time" 
-        itens={teams}
+        itens={props.teams}
         inputValue = {team}
         handleChange={inputValue => setTeam(inputValue)}/>
         <Button>Criar card </Button>
