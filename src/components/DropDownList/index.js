@@ -9,6 +9,7 @@ return(
         required={props.mandatory} 
         value={props.inputValue} 
         onChange={event => props.handleChange(event.target.value)}>
+            <option valur='' ></option>
             {props.itens.map(item => <option key={item}>{item}</option>)}
         </select>
     </div>

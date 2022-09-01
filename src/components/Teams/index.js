@@ -8,10 +8,20 @@ const Team = (props) => {
   };
 
   return (
+    // props.employees.length > 0  ? <section> :''
+    props.employees.length > 0 &&
     <section className="team" style={style}>
       <h3 style={style}>{props.name}</h3>
-      <Employee />
-      <Employee />
+      <div className='employees'>
+      {props.employees.map( 
+        employee => <Employee 
+        backgroundColor={props.primaryColor}
+        key={employee.name}
+        name={employee.name} 
+        role={employee.role}
+        image={employee.image}
+        />)}
+        </div>
     </section>
   );
 };

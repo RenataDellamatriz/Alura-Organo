@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Banner from "./components/Banner";
+import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Team from "./components/Teams";
 
@@ -45,20 +46,24 @@ function App() {
   const [employees, setEmployees] = useState([]);
 
   const handleNewSubmit = (employee) => {
-    console.log(employee);
+    debugger
+    setEmployees([...employees, employee])
   };
 
   return (
     <div className="App">
       <Banner />
       <Form teams={teams.map(team => team.name)} handleSubmit={(employee) => handleNewSubmit(employee)} />
-      {teams.map( team => 
-      <Team 
+      
+      {teams.map( team => <Team 
       key={team.name} 
       name={team.name} 
       primaryColor={team.primaryColor}
-      secondaryColor={team.secondaryColor} />)}
-      
+      secondaryColor={team.secondaryColor} 
+      employees={employees.filter(employee => employee.team === team.name)}
+      />)}  
+        
+     <Footer/>   
       
     </div>
   );
